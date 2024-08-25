@@ -10,7 +10,7 @@ export const EPUB_CONTENT = "content";
 export const EPUB_IMAGES = "images";
 export const EPUB_MISC = "misc";
 
-export async function parseEpub(pathToEpub) {
+export async function parseEpub(pathToEpub: string) {
   const xmlParser = new xml2js.Parser();
   const epubObj = {};
 
@@ -41,7 +41,7 @@ export async function parseEpub(pathToEpub) {
             epubObj[EPUB_MISC][entry.path] = content;
           }
         }
-      }),
+      })
     )
     .promise()
     .then(() => epubObj);
